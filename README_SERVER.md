@@ -59,13 +59,21 @@ ctest --output-on-failure
 sudo make install
 ```
 
-Binary will be installed to `/usr/local/bin/dnstt-udp`
+Binary will be installed to `/usr/local/bin/dnstt-udp`, the service unit will be installed to `/etc/systemd/system/dnstt-udp.service`, and a default configuration file will be installed to `/etc/dnstt-udp/dnstt-udp.conf`.
 
 ### Creating runtime directory
 
 ```bash
 sudo mkdir -p /etc/dnstt-udp
 sudo chmod 755 /etc/dnstt-udp
+```
+
+### Start the service
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable dnstt-udp
+sudo systemctl start dnstt-udp
 ```
 
 ## Usage
@@ -128,7 +136,7 @@ port = 5300
 # Number of worker threads (1-256)
 worker_count = 8
 
-# MTU size in bytes (576-65535)
+# MTU size in bytes (128-65535)
 mtu_size = 1500
 
 # Socket buffer size in bytes
@@ -179,7 +187,7 @@ Errors: 0
 ## MTU Management
 
 The server automatically manages packet fragmentation:
-- Configurable MTU size (576-65535 bytes)
+- Configurable MTU size (128-65535 bytes)
 - Automatic packet fragmentation for large payloads
 - UDP GW protocol compatibility (accounts for IP+UDP headers)
 - Packet size tracking and optimal MTU detection

@@ -28,12 +28,14 @@ void print_usage(const char* program) {
     std::cout << "  -g, --generate-key           generate and save 32-byte hex PUBKEY\n";
     std::cout << "  -k, --pubkey-file FILE       save generated key to file\n";
     std::cout << "  -s, --show-key               display current pubkey information\n";
+    std::cout << "  --show-config                display current server configuration\n";
     std::cout << "  -h, --help                   show this help message\n";
     std::cout << "  -v, --version                show version information\n\n";
     std::cout << "Examples:\n";
-    std::cout << "  " << program << " -p 5300 -w 8\n";
+    std::cout << "  " << program << " -p 53 -w 8 -m 512\n";
     std::cout << "  " << program << " -c /etc/dnstt-udp.conf\n";
     std::cout << "  " << program << " -g -k /etc/dnstt-udp/pubkey\n";
+    std::cout << "  " << program << " --show-config\n";
 }
 
 void print_version() {
@@ -71,6 +73,7 @@ int main(int argc, char* argv[]) {
     bool generate_key = false;
     std::string pubkey_file;
     bool show_key = false;
+    bool show_config = false;
     
     // Parse command-line arguments
     for (int i = 1; i < argc; ++i) {
@@ -126,7 +129,43 @@ int main(int argc, char* argv[]) {
             }
         } else if (arg == "-s" || arg == "--show-key") {
             show_key = true;
+        } else if (arg == "--show-config") {
+            show_config = true;
         }
+    }
+    
+    // Try to load default config file if no config specified
+    if (config_file.empty()) {
+        std::string default_configs[] = {
+            "/etc/dnstt-udp/dnstt-udp.conf",
+            "./etc/dnstt-udp.conf",
+            "./dnstt-udp.conf"
+        };
+        
+        for (const auto& conf_path : default_configs) {
+            if (config.load_from_file(conf_path)) {
+                std::cout << "Loaded configuration from: " << conf_path << "\n";
+                break;
+            }
+        }
+    }
+    
+    // Handle config display
+    if (show_config) {
+        std::cout << "Current Server Configuration:\n";
+        std::cout << "========================================\n";
+        std::cout << "Port: " << config.get_int(Config::PORT) << "\n";
+        std::cout << "Workers: " << config.get_int(Config::WORKERS) << "\n";
+        std::cout << "MTU: " << config.get_int(Config::MTU) << " bytes\n";
+        std::cout << "Buffer Size: " << config.get_int(Config::BUFFER_SIZE_KEY) << " bytes\n";
+        std::cout << "Bind Address: " << config.get_string(Config::BIND_ADDRESS) << "\n";
+        std::cout << "Session Timeout: " << config.get_int(Config::SESSION_TIMEOUT) << " seconds\n";
+        std::cout << "Log Level: " << config.get_string(Config::LOG_LEVEL) << "\n";
+        std::cout << "PubKey Path: " << config.get_string(Config::PUBKEY_PATH) << "\n";
+        std::cout << "Enable Stats: " << config.get_string(Config::ENABLE_STATS) << "\n";
+        std::cout << "Stats Interval: " << config.get_string(Config::STATS_INTERVAL) << " ms\n";
+        std::cout << "========================================\n";
+        return 0;
     }
     
     // Validate configuration

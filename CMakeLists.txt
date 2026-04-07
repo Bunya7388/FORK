@@ -59,8 +59,10 @@ endif()
 
 # Installation
 install(TARGETS dnstt-udp DESTINATION bin)
-install(FILES README.md DESTINATION share/doc/dnstt-udp)
+install(FILES README.md README_SERVER.md DESTINATION share/doc/dnstt-udp)
 install(DIRECTORY include/ DESTINATION include/dnstt-udp)
+install(FILES dnstt-udp.service DESTINATION /etc/systemd/system)
+install(FILES etc/dnstt-udp.conf DESTINATION /etc/dnstt-udp)
 
 # Testing
 enable_testing()
