@@ -1,0 +1,70 @@
+Start testing: Apr 07 07:23 UTC
+----------------------------------------------------------
+1/3 Testing: WorkerPoolTest
+1/3 Test: WorkerPoolTest
+Command: "/workspaces/FORK/build/tests/test_worker_pool"
+Directory: /workspaces/FORK/build/tests
+"WorkerPoolTest" start time: Apr 07 07:23 UTC
+Output:
+----------------------------------------------------------
+Testing Worker Pool...
+✓ Worker pool created and started
+✓ Tasks enqueued and processed
+✓ Worker pool resized
+All worker pool tests passed!
+<end of output>
+Test time =   0.50 sec
+----------------------------------------------------------
+Test Passed.
+"WorkerPoolTest" end time: Apr 07 07:23 UTC
+"WorkerPoolTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/3 Testing: SessionManagerTest
+2/3 Test: SessionManagerTest
+Command: "/workspaces/FORK/build/tests/test_session_manager"
+Directory: /workspaces/FORK/build/tests
+"SessionManagerTest" start time: Apr 07 07:23 UTC
+Output:
+----------------------------------------------------------
+Testing Session Manager...
+✓ Session created with ID: 1
+✓ Session retrieved successfully
+✓ Session updated successfully
+✓ Active sessions count: 2
+✓ Session closed successfully
+✓ Expired sessions cleaned up
+All session manager tests passed!
+<end of output>
+Test time =   2.00 sec
+----------------------------------------------------------
+Test Passed.
+"SessionManagerTest" end time: Apr 07 07:23 UTC
+"SessionManagerTest" time elapsed: 00:00:02
+----------------------------------------------------------
+
+3/3 Testing: PubKeyTest
+3/3 Test: PubKeyTest
+Command: "/workspaces/FORK/build/tests/test_pubkey"
+Directory: /workspaces/FORK/build/tests
+"PubKeyTest" start time: Apr 07 07:23 UTC
+Output:
+----------------------------------------------------------
+Testing PUBKEY Generator...
+✓ Generated 32-byte HEX PUBKEY
+  HEX: 104d0abdad70f3a330231f13a367ef6f...
+  Fingerprint: a910f7c12794f53e16f82d4316dbd741
+✓ Generated key from seed
+✓ Hex key conversion validated
+✓ Key save/load functionality working
+✓ Fingerprint generation verified
+All PUBKEY tests passed!
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"PubKeyTest" end time: Apr 07 07:23 UTC
+"PubKeyTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Apr 07 07:23 UTC

@@ -168,7 +168,6 @@ tests/CMakeFiles/test_pubkey.dir/__/src/pubkey_generator.cpp.o
  /usr/include/openssl/rand.h
  /usr/include/openssl/randerr.h
  /usr/include/openssl/safestack.h
- /usr/include/openssl/sha.h
  /usr/include/openssl/stack.h
  /usr/include/openssl/symhacks.h
  /usr/include/openssl/types.h
@@ -449,7 +448,6 @@ tests/CMakeFiles/test_pubkey.dir/test_pubkey.cpp.o
  /usr/include/openssl/opensslv.h
  /usr/include/openssl/params.h
  /usr/include/openssl/safestack.h
- /usr/include/openssl/sha.h
  /usr/include/openssl/stack.h
  /usr/include/openssl/symhacks.h
  /usr/include/openssl/types.h

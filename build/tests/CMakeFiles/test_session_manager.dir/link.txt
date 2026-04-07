@@ -1,1 +1,1 @@
-/usr/bin/c++ -O3 -march=native -Wall -Wextra -Werror -O3 -march=native -fPIC -O3 -DNDEBUG CMakeFiles/test_session_manager.dir/test_session_manager.cpp.o CMakeFiles/test_session_manager.dir/__/src/session_manager.cpp.o -o test_session_manager 
+/usr/bin/c++  -Wall -Wextra -Werror -O3 -march=native -fPIC -O3 -DNDEBUG CMakeFiles/test_session_manager.dir/test_session_manager.cpp.o CMakeFiles/test_session_manager.dir/__/src/session_manager.cpp.o -o test_session_manager 

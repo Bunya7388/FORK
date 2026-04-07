@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/workspaces/FORK/include
 
-CXX_FLAGS = -O3 -march=native -Wall -Wextra -Werror -O3 -march=native -fPIC -O3 -DNDEBUG -std=gnu++17 -O3 -ffast-math
+CXX_FLAGS =  -Wall -Wextra -Werror -O3 -march=native -fPIC -O3 -DNDEBUG -std=gnu++17 -O3 -ffast-math
 
