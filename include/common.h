@@ -69,9 +69,9 @@ struct SessionInfo {
     bool active;
 };
 
-// PUBKEY structure (64 bytes hex)
+// PUBKEY structure (32 bytes / 64 hex chars)
 struct PubKey {
-    uint8_t key[64];
+    uint8_t key[32];
     std::string hex_string;
     std::string fingerprint;
 };

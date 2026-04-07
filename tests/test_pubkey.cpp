@@ -13,11 +13,11 @@ int main() {
     PubKey key1 = keygen.generate_key();
     assert(keygen.validate_key(key1));
     
-    std::cout << "✓ Generated 64-byte HEX PUBKEY\n";
+    std::cout << "✓ Generated 32-byte HEX PUBKEY\n";
     std::cout << "  HEX: " << key1.hex_string.substr(0, 32) << "..." << "\n";
     std::cout << "  Fingerprint: " << key1.fingerprint << "\n";
     
-    assert(key1.hex_string.length() == 128); // 64 bytes = 128 hex chars
+    assert(key1.hex_string.length() == 64); // 32 bytes = 64 hex chars
     assert(key1.fingerprint.length() == 32); // 16 bytes = 32 hex chars
     
     // Test 2: Generate key from seed
@@ -27,8 +27,8 @@ int main() {
     std::cout << "✓ Generated key from seed\n";
     
     // Test 3: Hex conversion
-    std::string hex = keygen.key_to_hex(key1.key, 64);
-    assert(hex.length() == 128);
+    std::string hex = keygen.key_to_hex(key1.key, 32);
+    assert(hex.length() == 64);
     assert(keygen.validate_hex_key(hex));
     
     std::cout << "✓ Hex key conversion validated\n";
@@ -41,8 +41,8 @@ int main() {
     assert(keygen.load_key(keyfile, key3));
     
     // Verify loaded key matches original
-    std::string hex1 = keygen.key_to_hex(key1.key, 64);
-    std::string hex3 = keygen.key_to_hex(key3.key, 64);
+    std::string hex1 = keygen.key_to_hex(key1.key, 32);
+    std::string hex3 = keygen.key_to_hex(key3.key, 32);
     assert(hex1 == hex3);
     
     std::cout << "✓ Key save/load functionality working\n";

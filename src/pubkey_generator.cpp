@@ -32,7 +32,7 @@ PubKey PubKeyGenerator::generate_key() {
 PubKey PubKeyGenerator::generate_key_from_seed(const std::string& seed) {
     PubKey key;
     
-    // Use SHA-256 of seed as the key
+    // Use SHA-256 of seed as the key (32 bytes)
     unsigned char hash[EVP_MAX_MD_SIZE];
     unsigned int hash_len = 0;
     
@@ -42,19 +42,11 @@ PubKey PubKeyGenerator::generate_key_from_seed(const std::string& seed) {
     EVP_DigestFinal_ex(mdctx, hash, &hash_len);
     EVP_MD_CTX_free(mdctx);
     
-    // Extend hash to 64 bytes
+    // Copy hash directly into key buffer
     std::memcpy(key.key, hash, std::min(size_t(hash_len), KEY_SIZE));
     if (hash_len < KEY_SIZE) {
-        // Fill remaining with more hashing iterations
-        EVP_MD_CTX* mdctx2 = EVP_MD_CTX_new();
-        for (size_t i = hash_len; i < KEY_SIZE; i += hash_len) {
-            EVP_DigestInit_ex(mdctx2, EVP_sha256(), nullptr);
-            EVP_DigestUpdate(mdctx2, key.key, i);
-            EVP_DigestFinal_ex(mdctx2, hash, &hash_len);
-            size_t copy_size = std::min(size_t(hash_len), KEY_SIZE - i);
-            std::memcpy(key.key + i, hash, copy_size);
-        }
-        EVP_MD_CTX_free(mdctx2);
+        // Extra safety if SHA-256 output is shorter than expected (should not happen)
+        std::memset(key.key + hash_len, 0, KEY_SIZE - hash_len);
     }
     
     key.hex_string = key_to_hex(key.key, KEY_SIZE);

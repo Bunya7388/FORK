@@ -25,7 +25,7 @@ void print_usage(const char* program) {
     std::cout << "  -m, --mtu MTU                MTU size in bytes (default: 1500)\n";
     std::cout << "  -b, --buffer-size SIZE       socket buffer size in bytes (default: 4MB)\n";
     std::cout << "  -c, --config FILE            load configuration file\n";
-    std::cout << "  -g, --generate-key           generate and save 64-byte hex PUBKEY\n";
+    std::cout << "  -g, --generate-key           generate and save 32-byte hex PUBKEY\n";
     std::cout << "  -k, --pubkey-file FILE       save generated key to file\n";
     std::cout << "  -s, --show-key               display current pubkey information\n";
     std::cout << "  -h, --help                   show this help message\n";
@@ -143,7 +143,7 @@ int main(int argc, char* argv[]) {
         PubKeyGenerator keygen;
         PubKey key = keygen.generate_key();
         
-        std::cout << "Generated 64-Byte HEX PUBKEY:\n";
+        std::cout << "Generated 32-Byte HEX PUBKEY:\n";
         std::cout << "========================================\n";
         std::cout << "HEX Key: " << key.hex_string << "\n";
         std::cout << "Fingerprint: " << key.fingerprint << "\n";

@@ -11,7 +11,7 @@ High-performance DNS tunneling server with optimized UDP transport for fast and 
 ✅ **Buffer Optimization**: Large socket buffers (4MB read/write)  
 ✅ **Ready-to-Run**: Pre-built binaries included  
 ✅ **Concurrent Processing**: Non-blocking request handling  
-✅ **HEX 64 PUBKEY**: Generate and manage 64-byte public keys  
+✅ **HEX 64 PUBKEY**: Generate and manage 32-byte public keys
 ✅ **MTU Management**: Dynamic MTU size handling and packet fragmentation  
 ✅ **UDP GW Compatible**: Compatible with udpgw-server/badvpn-udpgw protocol  
 
@@ -76,7 +76,7 @@ sudo chmod 755 /etc/dnstt-udp
 dnstt-udp -p 5300 -w 4 -m 1500
 ```
 
-### Generate 64-byte HEX PUBKEY
+### Generate 32-byte HEX PUBKEY
 
 ```bash
 # Generate and display key
@@ -104,7 +104,7 @@ Options:
   -m, --mtu MTU                MTU size in bytes (default: 1500)
   -b, --buffer-size SIZE       socket buffer size in bytes (default: 4MB)
   -c, --config FILE            load configuration file
-  -g, --generate-key           generate and save 64-byte hex PUBKEY
+  -g, --generate-key           generate and save 32-byte hex PUBKEY
   -k, --pubkey-file FILE       save generated key to file
   -s, --show-key               display current pubkey information
   -h, --help                   show this help message
@@ -194,11 +194,11 @@ dnstt-udp -m 1500
 
 ## Public Key Management
 
-### Generate new 64-byte HEX PUBKEY
+### Generate new 32-byte HEX PUBKEY
 
 ```bash
 $ dnstt-udp -g
-Generated 64-Byte HEX PUBKEY:
+Generated 32-Byte HEX PUBKEY:
 ========================================
 HEX Key: a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9d0e1f2g3h4i5j6k7l8m9n0o1p2q3r4s5t6u7v8w9
 Fingerprint: a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6

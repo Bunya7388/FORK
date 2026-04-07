@@ -30,7 +30,7 @@ public:
     bool validate_hex_key(const std::string& hex_key);
     
     // Constants
-    static constexpr size_t KEY_SIZE = 64;
+    static constexpr size_t KEY_SIZE = 32;
     static constexpr size_t HEX_KEY_SIZE = KEY_SIZE * 2;
     
 private:

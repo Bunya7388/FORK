@@ -8,7 +8,7 @@ A high-performance, production-ready DNS tunneling server optimized for fast UDP
 # Build the project
 ./build.sh
 
-# Generate 64-byte HEX PUBKEY
+# Generate 32-byte HEX PUBKEY
 ./build/dnstt-udp -g
 
 # Start server with 8 workers on port 5300
@@ -30,7 +30,7 @@ A high-performance, production-ready DNS tunneling server optimized for fast UDP
 - **✅ Session Management**: Automatic session tracking and cleanup
 - **✅ Performance Monitoring**: Real-time statistics (packets/sec, throughput)
 - **✅ MTU Management**: Dynamic MTU size handling and packet fragmentation
-- **✅ HEX 64 PUBKEY**: Generate and manage 64-byte public keys
+- **✅ HEX 64 PUBKEY**: Generate and manage 32-byte public keys
 
 ### Compatibility & Deployment
 - **✅ UDP GW Compatible**: Compatible with udpgw-server/badvpn-udpgw protocol
@@ -118,7 +118,7 @@ Config: ./etc/dnstt-udp.conf
 ### Generate Public Key
 
 ```bash
-# Display 64-byte HEX PUBKEY
+# Display 32-byte HEX PUBKEY
 ./build/dnstt-udp -g
 
 # Save to file for secure storage
@@ -168,13 +168,13 @@ Errors: 0
 
 ## 🔐 Public Key Management
 
-### Generate 64-Byte HEX Key
+### Generate 32-Byte HEX Key
 
-The server can generate cryptographically secure 64-byte keys:
+The server can generate cryptographically secure 32-byte keys:
 
 ```bash
 $ ./build/dnstt-udp -g
-Generated 64-Byte HEX PUBKEY:
+Generated 32-Byte HEX PUBKEY:
 ========================================
 HEX Key: a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9d0e1f2g3h4i5j6k7l8m9n0o1p2q3r4s5t6u7v8
 Fingerprint: a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6
