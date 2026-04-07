@@ -108,7 +108,7 @@ int main(int argc, char* argv[]) {
             }
         } else if (arg == "-b" || arg == "--buffer-size") {
             if (i + 1 < argc) {
-                config.set_int(Config::BUFFER_SIZE, std::atoi(argv[++i]));
+                config.set_int(Config::BUFFER_SIZE_KEY, std::atoi(argv[++i]));
             }
         } else if (arg == "-c" || arg == "--config") {
             if (i + 1 < argc) {

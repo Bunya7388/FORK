@@ -35,7 +35,7 @@ public:
     static constexpr const char* PORT = "port";
     static constexpr const char* WORKERS = "worker_count";
     static constexpr const char* MTU = "mtu_size";
-    static constexpr const char* BUFFER_SIZE = "buffer_size";
+    static constexpr const char* BUFFER_SIZE_KEY = "buffer_size";
     static constexpr const char* SESSION_TIMEOUT = "session_timeout";
     static constexpr const char* LOG_LEVEL = "log_level";
     static constexpr const char* BIND_ADDRESS = "bind_address";

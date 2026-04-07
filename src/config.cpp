@@ -60,7 +60,7 @@ bool Config::load_from_defaults() {
     config_map_[PORT] = std::to_string(DEFAULT_PORT);
     config_map_[WORKERS] = std::to_string(DEFAULT_WORKERS);
     config_map_[MTU] = std::to_string(DEFAULT_MTU);
-    config_map_[BUFFER_SIZE] = std::to_string(BUFFER_SIZE);
+    config_map_[BUFFER_SIZE_KEY] = std::to_string(BUFFER_SIZE);
     config_map_[SESSION_TIMEOUT] = std::to_string(SESSION_TIMEOUT_SECONDS);
     config_map_[LOG_LEVEL] = "INFO";
     config_map_[BIND_ADDRESS] = "0.0.0.0";
